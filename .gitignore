@@ -274,3 +274,5 @@ dump.rdb
 test_charts/media/
 
 .pytest_cache/
+
+.env
