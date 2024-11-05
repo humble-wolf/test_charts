@@ -1,0 +1,23 @@
+<!-- chart.html -->
+<html>
+  <body>
+    <h2>Sample D3 Chart</h2>
+    <div id="chart"></div>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+      const data = [10, 15, 20, 25, 30];
+      const svg = d3.select("#chart").append("svg")
+                    .attr("width", 400)
+                    .attr("height", 200);
+
+      svg.selectAll("rect")
+         .data(data)
+         .enter()
+         .append("rect")
+         .attr("x", (d, i) => i * 60)
+         .attr("y", d => 200 - d * 6)
+         .attr("width", 50)
+         .attr("height", d => d * 6);
+    </script>
+  </body>
+</html>
