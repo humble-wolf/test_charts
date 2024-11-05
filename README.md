@@ -1,50 +1,93 @@
-# test_charts
+# Test Charts Project
 
-Behold My Awesome Project!
+This project is a Django application designed for rendering charts and includes a REST API for retrieving chart data. The application supports user authentication and utilizes D3.js for data visualization.
 
-[![Built with Cookiecutter Django](https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg?logo=cookiecutter)](https://github.com/cookiecutter/cookiecutter-django/)
-[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+## Table of Contents
 
-License: MIT
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Install System Dependencies](#install-system-dependencies)
+- [Setting Up the Project](#setting-up-the-project)
+- [Usage](#usage)
+- [Running Tests](#running-tests)
 
-## Settings
+## Features
 
-Moved to [settings](https://cookiecutter-django.readthedocs.io/en/latest/1-getting-started/settings.html).
+- User authentication with optional email verification
+- Interactive chart rendering using D3.js
+- REST API for accessing chart data
+- Clean and organized codebase
 
-## Basic Commands
+## Prerequisites
 
-### Setting Up Your Users
+Before you begin, ensure you have the following installed on your system:
 
-- To create a **normal user account**, just go to Sign Up and fill out the form. Once you submit it, you'll see a "Verify Your E-mail Address" page. Go to your console to see a simulated email verification message. Copy the link into your browser. Now the user's email should be verified and ready to go.
+- **Python**: Version 3.10 or higher
+- **PostgreSQL**: Version 13 or higher
+- **Python Development Headers**: Install via `python3-dev`
+- **PostgreSQL Development Files**: Install via `libpq-dev`
 
-- To create a **superuser account**, use this command:
+## Install System Dependencies
 
-      $ python manage.py createsuperuser
+Run the following commands to install the necessary system packages:
 
-For convenience, you can keep your normal user logged in on Chrome and your superuser logged in on Firefox (or similar), so that you can see how the site behaves for both kinds of users.
+```bash
+sudo apt install python3-dev
+sudo apt install libpq-dev
+```
 
-### Type checks
+### Setting Up the Project
+1. **Clone the Repository**
 
-Running type checks with mypy:
+    ```bash
+    git clone https://github.com/humble-wolf/test_charts.git
+    cd test_charts
+    ```
 
-    $ mypy test_charts
+2. **Install Python Virtual Environment**
 
-### Test coverage
+   If you don't have `venv` installed, you can install it with:
 
-To run the tests, check your test coverage, and generate an HTML coverage report:
+    ```bash
+    sudo apt install python3-venv
+    ```
 
-    $ coverage run -m pytest
-    $ coverage html
-    $ open htmlcov/index.html
+3. **Create and Activate a Virtual Environment**
 
-#### Running tests with pytest
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
 
-    $ pytest
+4. **Install Python Dependencies**
 
-### Live reloading and Sass CSS compilation
+    Install the required Python packages from `requirements/local.txt`:
 
-Moved to [Live reloading and SASS compilation](https://cookiecutter-django.readthedocs.io/en/latest/2-local-development/developing-locally.html#using-webpack-or-gulp).
+    ```bash
+    pip3 install -r requirements/local.txt
+    ```
 
-## Deployment
+5. **Run Database Migrations**
 
-The following details how to deploy this application.
+    Apply the necessary migrations to set up the database schema:
+
+    ```bash
+    python3 manage.py migrate
+    ```
+
+6. **Run the Development Server**
+
+    Start the Django development server:
+
+    ```bash
+    python3 manage.py runserver
+    ```
+## Usage
+
+Once the server is running, you can access the application at http://127.0.0.1:8000/.
+
+## Running Tests
+To ensure everything is working correctly, run the test suite with:
+```bash
+pytest
+```
